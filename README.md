@@ -1,6 +1,6 @@
 # Stack Overflow tag Prediction
 Predicting the tag of stackoverflow questions
-![image](https://user-images.githubusercontent.com/32350208/123401592-91b81a00-d5c4-11eb-8d0b-1d93e14c2d91.png)
+<img src="tags.png">
 
 
 ## Table of contents
@@ -245,3 +245,33 @@ Calculate metrics for each label, and find their unweighted mean. This does not 
     </tr>
   </tbody>
 </table>
+
+### Cleaning and preprocessing of Questions
+
+#### Preprocessing
+<ol> 
+    <li> Sample 1M data points </li>
+    <li> Separate out code-snippets from Body </li>
+    <li> Remove Spcial characters from Question title and description (not in code)</li>
+    <li> Remove stop words (Except 'C') </li>
+    <li> Remove HTML Tags </li>
+    <li> Convert all the characters into small letters </li>
+    <li> Use SnowballStemmer to stem the words </li>
+</ol>
+
+## Machine Learning Modeling
+
+I used OneVsRestClassifier using Logistic Regression. Logistic Regression works extremely fast and perform well on high-dimensional data.
+
+Tried with 1M dataset, but took many hours to train. So, decided to use 0.5M data points and give more weightage to title and 500 tags only.
+
+## Why not Use Advance techniques?
+You can use Deep Learning approach, but, DL model needs more resources to scale for large community than Machine Learning simple(yet powerful) models.
+
+## Team
+<a href="https://github.com/iqbal786786"><img src="https://avatars.githubusercontent.com/u/32350208?v=4" width=300></a>
+|-|
+[Muhammad Iqbal Bazmi](https://github.com/iqbal786786) |)
+
+## Credit
+- [Applied AI Course](https://www.appliedaicourse.com) : For teaching in-depth Machine Learning and Deep Learning
